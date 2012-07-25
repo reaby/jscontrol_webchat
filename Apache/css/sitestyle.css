@@ -1,0 +1,36 @@
+body {
+	margin: 0;
+}
+
+#chat {
+	background: url("../img/maniaplanet.jpg") center center no-repeat;
+	background-size: cover;
+	padding: 1em;
+	height: 80%;
+	background-color: #aaa;
+	color: #ff0;
+}
+
+#message {
+	border: 1px solid black;
+	width: 50em;
+}
+
+#showNick {
+	margin-left: 0.5em;		
+	margin-right: 0.5em;		
+	border: none;	
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+footer {
+	clear: both;	
+	font-size: 9pt;
+	margin-top: 1em;
+	text-align: center;
+}
