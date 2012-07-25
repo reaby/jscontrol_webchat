@@ -27,7 +27,6 @@ header h1 {
 
 #chat {	
 	height: 300px;
-	color: #ff0;
 	overflow-y: scroll;
 	overflow-style: marquee, marquee;
 	border-bottom: 1px solid black;

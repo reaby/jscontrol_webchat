@@ -49,6 +49,7 @@ if (!isset($_POST['nickName'])) {
 
 		<script src="js/plugins.js"></script>
 		<script src="js/script.js"></script>
+		<script src="js/libs/maniaplanet-styleparser.js"></script>	
 		<script src="js/webchat.js"></script>	
 	</body>
 </html>
