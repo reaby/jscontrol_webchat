@@ -15,23 +15,32 @@
 
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/sitestyle.css">
-		
+
 		<script src="js/libs/modernizr-2.5.3.min.js"></script>
 	</head>
 	<body>
 		<header>
 			<h1>Maniaplanet Webchat</h1>
 		</header>
-	<div role="main">
-		<form action="chat.php" method="post">
-			<label>Nickname: <input type="text" name="nickName"></label> <input type="submit" value="Connect...">
-		</form>	
+		<div role="main" id="main">
+			<h2>Welcome</h2>
+			<p>Please enter your name to connect to the linked server. <br/>
+				You can use Maniaplanet <a href="http://wiki.maniaplanet.com/en/Profile" target="_BLANK">color codes</a> to enhace the experimence.<br />
+			</p>
+			<p>
+				<br />
+			<form action="chat.php" method="post">
+				<label>Nickname <input type="text" name="nickName"></label> <input type="submit" value="Connect">
+			</form>	
+		</p>
+		<br />
+		<br />
 	</div>
 	<footer>
-			All rights Reserved. ManiaPlanet, TrackMania logo, ShootMania, 
-			QuestMania, Nadeo, the Nadeo logo, Ubisoft, Ubi.com and 
-			the Ubisoft logo are trademarks of Ubisoft Entertainment 
-			in the US and/or other countries.
+		All rights Reserved. ManiaPlanet, TrackMania logo, ShootMania, 
+		QuestMania, Nadeo, the Nadeo logo, Ubisoft, Ubi.com and 
+		the Ubisoft logo are trademarks of Ubisoft Entertainment 
+		in the US and/or other countries.
 	</footer>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>

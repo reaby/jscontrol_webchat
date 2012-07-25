@@ -18,7 +18,11 @@ socket.on('playerChat', function (data) {
 		message = parseColors("$ff0" + data.chat[1]);
 	}
 	$('#chat').append('<div class="chatline">' + message + "</div>\n");
-	console.log(data);
+	var element = document.getElementById("chat");
+	element.scrollTop = element.scrollHeight;	
+	
+	console.log(element.scrollHeight);
+	
 });
 
 // jQuery startup

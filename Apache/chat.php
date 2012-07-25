@@ -12,7 +12,7 @@ if (!isset($_POST['nickName'])) {
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
-		<title>ManiaPlanet webchat</title>
+		<title>Maniaplanet webchat</title>
 		<meta name="description" content="">
 		<meta name="author" content="Reaby">
 
@@ -26,9 +26,13 @@ if (!isset($_POST['nickName'])) {
 		<script src="http://<?php echo $_SERVER['SERVER_ADDR'] . ":8080"; ?>/socket.io/socket.io.js"></script>	
 	</head>
 	<body>
-		<header></header>
-		<div role="main">
-			<div id="chat"></div>		
+		<header>
+			<h1>Maniaplanet Webchat</h1>
+		</header>
+		<div role="main" id="main">
+			<div id="chat">
+			
+			</div>		
 			<div id="input">
 				<span id="showNick"></span><input id="message" type="text" />
 				<input id="nickname" type="hidden" value="<?php echo $_POST['nickName']; ?>"/><input id="serverLogin" type="hidden" />
