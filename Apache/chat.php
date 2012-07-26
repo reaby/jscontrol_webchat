@@ -27,7 +27,8 @@ if (!isset($_POST['nickName'])) {
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
-		<script src="https://raw.github.com/magnetik/maniaplanet-style-js-parser/master/bin/mp-style-parser.js"></script>	
+		<!-- https://raw.github.com/magnetik/maniaplanet-style-js-parser/master/bin/mp-style-parser.js -->
+		<script src="js/libs/styleparser.js"></script>	
 		<script src="js/webchat.js"></script>	
 	</head>
 	<body>
