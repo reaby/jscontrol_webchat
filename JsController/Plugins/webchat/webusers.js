@@ -49,3 +49,7 @@ var newPlayers = [];
 	
 	return dummyObj;
 }
+
+exports.getPlayerList = function () {
+	return _webplayers;	
+}

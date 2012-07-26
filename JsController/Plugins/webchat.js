@@ -1,5 +1,5 @@
 
-var io = require('socket.io').listen(8080);
+var io = require('socket.io').listen(8081);
 var players = require('./webchat/players.js');
 var webusers = require('./webchat/webusers.js');
 
@@ -34,6 +34,7 @@ exports.Init = function(core) {
 			io.sockets.emit('setServerLogin', {
 				login: login
 			});
+			sendPlayerList();
 		});
 		
 		
@@ -44,17 +45,21 @@ exports.Init = function(core) {
 			if (webusers.playerExists(name)) return;
 			webusers.addPlayer(name);
 			// and send notification to server that a player is joined :)
-			core.callMethod('ChatSendServerMessage', ['$z$i$s$08f New Webchat connection:$z$s$ff0 '+ name ])
+			core.callMethod('ChatSendServerMessage', ['$z$i$s$08f New Webchat connection:$z$s$ff0 '+ name ]);
+			console.log("["+name+"] Connected from webchat");
+			sendPlayerList();
 		});
 		socket.on('chatSend', function (data) {
-			core.callMethod('ChatSendServerMessage', ['$z$s$0f0[$z$s$ff0'+data.chat[0]+"$z$s$0f0] $z$s$ff0"+ data.chat[1] ])
+			core.callMethod('ChatSendServerMessage', ['$z$s$0d0[$z$s$ff0'+data.chat[0]+"$z$s$0d0] $z$s$ff0"+ data.chat[1] ])
 		});
 
 		socket.on('disconnect', function () {
 
 			socket.get('nickname', function (err, name) {
-				webusers.removePlayer(name);
-				core.callMethod('ChatSendServerMessage', ['$z$i$s$08f Webchat disconnection: $z$s$ff0' + name   ])
+				webusers.removePlayer(name);				
+				core.callMethod('ChatSendServerMessage', ['$s$i$s$08f Webchat disconnection: $z$s$ff0' + name   ])
+				console.log("["+name+"] Disconnected from webchat");
+				sendPlayerList();
 			});
 		
 		});
@@ -76,7 +81,7 @@ function playerChat(core, params) {
 	
 	// if chat comes anywhere else than server, add reset tag after nickname (so the client can parse the chatline correctly)
 	if (params[0] != 0 ) 
-		nickname = nickname + '$z';
+		nickname = nickname + '$z$s';
 	
 	// sendchat
 	io.sockets.emit('playerChat', {
@@ -89,9 +94,10 @@ function playerConnect(core, params) {
 	// param[0] = login
 	// param[1] = isSpectator
 
-	// console.log(params2);
+	//
 	core.callMethod('GetDetailedPlayerInfo', [params[0]], function(core, params2){
 		players.addPlayer(params[0], params2[0]);		
+		sendPlayerList();
 	});
 	
 }
@@ -101,5 +107,14 @@ function playerDisconnect(core, params) {
 	// param[1] = isSpectator
 	
 	players.removePlayer(params[0]);
+	sendPlayerList();
 }
 
+function sendPlayerList() {
+	var _players = players.getPlayerList();
+	var _webusers = webusers.getPlayerList();
+	var data = [_players, _webusers];
+	io.sockets.emit('setPlayerList', {
+		playerlist: data
+	});
+}

@@ -20,19 +20,36 @@ if (!isset($_POST['nickName'])) {
 
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/sitestyle.css">
-
+		<link rel="stylesheet" href="css/redmond/jquery-ui-1.8.22.custom.css">
 		<script src="js/libs/modernizr-2.5.3.min.js"></script>
-		<script> var serverLocation = "http://<?php echo $_SERVER['SERVER_ADDR'] . ":8080"; ?>"</script>
-		<script src="http://<?php echo $_SERVER['SERVER_ADDR'] . ":8080"; ?>/socket.io/socket.io.js"></script>	
+		<script> var serverLocation = "http://<?php echo $_SERVER['SERVER_ADDR'] . ":8081"; ?>"</script>
+		<script src="http://<?php echo $_SERVER['SERVER_ADDR'] . ":8081"; ?>/socket.io/socket.io.js"></script>	
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.21/jquery-ui.min.js"></script>
+		<script src="https://raw.github.com/magnetik/maniaplanet-style-js-parser/master/bin/mp-style-parser.js"></script>	
+		<script src="js/webchat.js"></script>	
 	</head>
 	<body>
 		<header>
 			<h1>Maniaplanet Webchat</h1>
 		</header>
-		<div role="main" id="main">
+		<div role="main" id="main">			
 			<div id="chat">
-			
-			</div>		
+
+			</div>
+			<div id="players">
+
+				<div id="accordion">
+					<h3><a href="#">Ingame <span id="gamecount"></span></a></h3>
+					<div id="game"></div>
+					<h3><a href="#">Webchat <span id="webcount"></span></a></h3>
+					<div id="web"></div>
+				</div>
+
+
+			</div>
+
 			<div id="input">
 				<span id="showNick"></span><input id="message" type="text" />
 				<input id="nickname" type="hidden" value="<?php echo $_POST['nickName']; ?>"/><input id="serverLogin" type="hidden" />
@@ -43,13 +60,6 @@ if (!isset($_POST['nickName'])) {
 			QuestMania, Nadeo, the Nadeo logo, Ubisoft, Ubi.com and 
 			the Ubisoft logo are trademarks of Ubisoft Entertainment 
 			in the US and/or other countries.
-		</footer>
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-		<script>window.jQuery || document.write('<script src="js/libs/jquery-1.7.2.min.js"><\/script>')</script>
-
-		<script src="js/plugins.js"></script>
-		<script src="js/script.js"></script>
-		<script src="js/libs/maniaplanet-styleparser.js"></script>	
-		<script src="js/webchat.js"></script>	
+		</footer>		
 	</body>
 </html>

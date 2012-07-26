@@ -1,5 +1,10 @@
 var _players = new Array();
 
+
+exports.getPlayerList = function () {
+	return _players;	
+}
+
 exports.addPlayer = function(_login, _playerObj) {
 	var player = {};
 	player.login = _login;	
